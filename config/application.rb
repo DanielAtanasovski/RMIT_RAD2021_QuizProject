@@ -2,6 +2,9 @@ require_relative 'boot'
 
 require 'rails/all'
 require 'json'
+require 'rest-client'
+
+$API_OKAY = false
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -21,9 +24,24 @@ module QuizProject
 
     config.after_initialize do
       if (ActiveRecord::Base.connection.table_exists? :questions)
-        loadJson
-        puts "Loaded "  << Question.count << " Questions from JSON"
+        if (!tryAPI)
+          loadJson
+          puts "Loaded "  << Question.count << " Questions from JSON"
+        else
+          $API_OKAY = true
+        end
       end
+    end
+
+    def tryAPI
+      # Attempt to contact quiz api, if fails use json file, else, we'll grab from api later in quiz
+      # response = RestClient.get 'https://quizapi.io/api/v1/questions', {params: {apiKey: 'A2bVAvKbgI6tBrCqE4wDprUN2hNwJek2F0F2ocLY', limit: 10}}
+      # if (response.code != 200)
+      #   return false
+      # else
+      #   return true
+      # end
+      return false
     end
 
     def loadJson

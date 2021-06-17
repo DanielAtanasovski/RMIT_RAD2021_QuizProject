@@ -27,6 +27,7 @@ gem 'bcrypt', '~> 3.1'
 gem 'bootstrap-sass', '~> 3.4.1'
 
 gem 'json'
+gem 'rest-client', '~> 2.1'
 
 # REQUIRED FOR DEV (STANDARD TEMPLATE)
 # Reduces boot times through caching; required in config/boot.rb

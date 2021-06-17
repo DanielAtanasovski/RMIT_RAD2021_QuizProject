@@ -1,25 +1,45 @@
 <section>
   <div class= "container mt-sm-5 text-center">
     <div>
-      <% if (not @quizComplete)%>
+      <% if (@defineSettings) %>
 
-        <h2 class="question"><%= @currentQuestion.question %></h2>
-        <%= form_with url: "/", class: "form" do |form| %>
-          <% @currentQuestion.answers.split(',').each_with_index do |answer, index| %>
-            <div class="form-group">
-              <%= form.radio_button :choice,  index,  class: "btn-check", :required => true%>
-              <%= form.label "choice_" + index.to_s, answer, class: "btn btn-secondary input-button"%>
-            </div>
+          <%= form_with url: "/", class: "form" do |form| %>
+          <div class="form-group">
+            <label for="max_questions"><h3>Max questions</h3></label>
+            <%= form.select(:max_questions, [ "4", "5", "6", "7", "8"], {} ,{:class => 'form-select'}) %>
+          </div>
+          <%= form.submit name: "start_quiz", value: "Start", class:"btn btn-primary input-button", data: { disable_with: false } %>
+
           <% end %>
-          <%= form.submit name: "next", value: "Next", class:"btn btn-primary input-button", data: { disable_with: false } %>
 
-        <% end %>
       <% else %>
 
-        <h2 class="question">Quiz Complete</h2>
-        <%= form_with url: "/", class: "form" do |form| %>
-          <h4> Got <%= @correctAnswers %> / <%= $maxQuestions %></h4>
-          <%= form.submit name: "reload", value: "Reload", class:"btn btn-primary input-button", data: { disable_with: false } %>
+        <% if (not @quizComplete)%>
+          <h2 class="question"><%= @currentQuestion.question %></h2>
+          <%= form_with url: "/", class: "form" do |form| %>
+            <% @currentQuestion.answers.split(',').each_with_index do |answer, index| %>
+              <div class="form-group">
+                <%= form.radio_button :choice,  index,  class: "btn-check", :required => true%>
+                <%= form.label "choice_" + index.to_s, answer, class: "btn btn-secondary input-button"%>
+              </div>
+            <% end %>
+            <%= form.submit name: "next", value: "Next", class:"btn btn-primary input-button", data: { disable_with: false } %>
+          <% end %>
+
+        <% else %>
+          <h1 class="question underline"><u>Quiz Complete</u></h1>
+          <h3 class="question">Previous Attempts</h3>
+          <div class="text-center">
+            <% @recentHistory.drop(1).each do | history | %>
+              <p class="text-center"><i>You got <%= history.questions_correct %> / <%= history.questions_completed %> at <%= history.created_at %></i></p>
+            <% end %>
+          </div>
+
+          <%= form_with url: "/", class: "form" do |form| %>
+            <h4> Got <%= @correctAnswers %> / <%= $maxQuestions %></h4>
+            <%= form.submit name: "reload", value: "Reload", class:"btn btn-primary input-button", data: { disable_with: false } %>
+          <% end %>
+
         <% end %>
 
       <% end %>

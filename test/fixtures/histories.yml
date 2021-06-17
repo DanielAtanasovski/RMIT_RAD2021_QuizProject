@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ip_address: MyString
+  questions_completed: 1
+  questions_correct: 1
+
+two:
+  ip_address: MyString
+  questions_completed: 1
+  questions_correct: 1

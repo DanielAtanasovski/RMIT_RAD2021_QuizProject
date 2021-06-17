@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_17_071106) do
+ActiveRecord::Schema.define(version: 2021_06_17_103442) do
+
+  create_table "histories", force: :cascade do |t|
+    t.string "ip_address"
+    t.integer "questions_completed"
+    t.integer "questions_correct"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "questions", force: :cascade do |t|
     t.string "question"

@@ -1,24 +1,10 @@
-# README
+# s3658474 Daniel Atanasovski
+# Quiz Project
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+HIGHEST LEVEL COMPLETED: CREDIT
 
-Things you may want to cover:
+API_KEY = 'A2bVAvKbgI6tBrCqE4wDprUN2hNwJek2F0F2ocLY'
 
-* Ruby version
+Heroku URL: https://infinite-island-88911.herokuapp.com/
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Heroku last deployment log:

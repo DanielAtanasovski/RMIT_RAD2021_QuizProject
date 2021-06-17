@@ -5,25 +5,40 @@ class HomeController < ApplicationController
 
     if (not params[:reload].nil?)
       reset
+      cookies[:currentQuestionID] = nil;
+      redirect_back fallback_location: root_path
     end
 
     # IF GAME OVER
     if (cookies[:currentQuestionCount].to_i >= $maxQuestions)
-      # QUIZ OVER
+      # save data
+      if (cookies[:saved_data].to_s == "false")
+        @correctAnswers = getCorrectAnswers;
+        @currentIP = request.remote_ip.to_s;
+        History.create(ip_address: @currentIP, questions_correct: @correctAnswers, questions_completed: $maxQuestions);
+        cookies[:saved_data] = true;
+      end
+
       @quizComplete = true;
-      @correctAnswers = getCorrectAnswers
+      @recentHistory = getRecentHistory(@currentIP);
     end
 
     # Set Quiz
-    if cookies[:currentQuestionID].nil?
-      reset
+    if cookies[:currentQuestionID].nil? or cookies[:currentQuestionID].to_i == 0
+      if (not params[:start_quiz].nil?)
+        $maxQuestions = params[:max_questions].to_i;
+        reset
+        redirect_back fallback_location: root_path
+      else
+        @defineSettings = true;
+      end
+
     else
       @currentQuestion = Question.find(cookies[:currentQuestionID].to_i)
 
       #  IF GOT AN ANSWER
       if (not params[:choice].nil?)
         @chosenAnswer = params[:choice].to_i;
-        puts "ChosenAnswer: " + @chosenAnswer.to_s
         cookies[:answers] = cookies[:answers].to_s + "," + @chosenAnswer.to_s;
         cookies[:questionsCompleted] = cookies[:questionsCompleted].to_s + "," + @currentQuestion.question_id.to_s;
         cookies[:currentQuestionCount] = cookies[:currentQuestionCount].to_i + 1
@@ -54,8 +69,6 @@ class HomeController < ApplicationController
       # @user = User.where(email: AdminUser.pluck(:email))
       @question = Question.where(question_id: question.to_i).first;
       if (not @question.nil?)
-        puts @question.question_id.to_s
-        puts "Question Answer" + @question.correct.to_s + ", Answer Given: " + @answersChosen[index].to_s
         if (@question.correct == @answersChosen[index+1].to_i)
           @count += 1;
         end
@@ -64,15 +77,19 @@ class HomeController < ApplicationController
     return @count;
   end
 
+  def getRecentHistory(ipAddress)
+    return History.where(ip_address: ipAddress).order("created_at desc").limit(6);
+  end
+
   def reset
-    puts "RESET"
     @currentQuestion = getRandomQuestion
     cookies[:currentQuestionID] = @currentQuestion.id
     cookies[:currentQuestionCount] = 0
     cookies[:questionsCompleted] = ""
     cookies[:answers] = ""
+    cookies[:saved_data] = false
+    @defineSettings = false
     @quizComplete = false
-    redirect_back fallback_location: root_path
   end
 
   def getRandomQuestion
