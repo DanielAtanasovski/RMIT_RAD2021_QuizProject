@@ -1,15 +1,25 @@
 <section>
   <div class= "container mt-sm-5 text-center">
-    <h2><%= @currentQuestion.question %></h2>
     <div>
-      <%= form_with url: "/", class: "form" do |form| %>
-        <% @currentQuestion.answers.split(',').each_with_index do |answer, index| %>
-          <div class="form-group">
-            <%= form.radio_button :choice,  index,  class: "btn-check", :required => true%>
-            <%= form.label "choice_" + index.to_s, answer, class: "btn btn-secondary input-button"%>
-          </div>
+      <% if (not @quizComplete)%>
+        <h2><%= @currentQuestion.question %></h2>
+        <%= form_with url: "/", class: "form" do |form| %>
+          <% @currentQuestion.answers.split(',').each_with_index do |answer, index| %>
+            <div class="form-group">
+              <%= form.radio_button :choice,  index,  class: "btn-check", :required => true%>
+              <%= form.label "choice_" + index.to_s, answer, class: "btn btn-secondary input-button"%>
+            </div>
+          <% end %>
+            <%= form.submit name: "next", value: "Next", class:"btn btn-primary input-button", data: { disable_with: false } %>
         <% end %>
-          <%= form.submit "Next", class:"btn btn-primary" %>
+      <% else %>
+        <h2>Quiz Complete</h2>
+        <%= form_with url: "/", class: "form" do |form| %>
+            <div class="form-group">
+              <p> Got <%= @correctAnswers %> / <%= $maxQuestions %></p>
+            </div>
+            <%= form.submit name: "reload", value: "Reload", class:"btn btn-primary input-button", data: { disable_with: false } %>
+        <% end %>
       <% end %>
     </div>
   </div>
