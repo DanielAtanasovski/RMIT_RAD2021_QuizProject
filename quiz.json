@@ -1,0 +1,325 @@
+[
+   {
+      "id":646,
+      "question":"How do we create command aliases in a shell?",
+      "description":null,
+      "answers":{
+         "answer_a":"alias Aliasname=\"Command whose alias is to be created\"",
+         "answer_b":"set alias Aliasname=\"Command whose alias is to be created\"",
+         "answer_c":"We can't create aliases directly in shell",
+         "answer_d":"configure Aliasname=\"Command whose alias is to be created\"",
+         "answer_e":null,
+         "answer_f":null
+      },
+      "multiple_correct_answers":"false",
+      "correct_answers":{
+         "answer_a_correct":"true",
+         "answer_b_correct":"false",
+         "answer_c_correct":"false",
+         "answer_d_correct":"false",
+         "answer_e_correct":"false",
+         "answer_f_correct":"false"
+      },
+      "correct_answer":"answer_a",
+      "explanation":null,
+      "tip":null,
+      "tags":[
+         {
+            "name":"BASH"
+         }
+      ],
+      "category":"Linux",
+      "difficulty":"Easy"
+   },
+   {
+      "id":702,
+      "question":"Which command can be used to display basic information about your server?",
+      "description":null,
+      "answers":{
+         "answer_a":"uname",
+         "answer_b":"info",
+         "answer_c":"ls",
+         "answer_d":"show",
+         "answer_e":null,
+         "answer_f":null
+      },
+      "multiple_correct_answers":"false",
+      "correct_answers":{
+         "answer_a_correct":"true",
+         "answer_b_correct":"false",
+         "answer_c_correct":"false",
+         "answer_d_correct":"false",
+         "answer_e_correct":"false",
+         "answer_f_correct":"false"
+      },
+      "correct_answer":null,
+      "explanation":null,
+      "tip":null,
+      "tags":[
+         {
+            "name":"Linux"
+         }
+      ],
+      "category":"Linux",
+      "difficulty":"Easy"
+   },
+   {
+      "id":682,
+      "question":"Expand JFS in context of file system?",
+      "description":null,
+      "answers":{
+         "answer_a":"Journal File System",
+         "answer_b":"Journal Failing System",
+         "answer_c":"Journal File Service",
+         "answer_d":"Journal Failing Service",
+         "answer_e":null,
+         "answer_f":null
+      },
+      "multiple_correct_answers":"false",
+      "correct_answers":{
+         "answer_a_correct":"true",
+         "answer_b_correct":"false",
+         "answer_c_correct":"false",
+         "answer_d_correct":"false",
+         "answer_e_correct":"false",
+         "answer_f_correct":"false"
+      },
+      "correct_answer":null,
+      "explanation":null,
+      "tip":null,
+      "tags":[
+         {
+            "name":"BASH"
+         }
+      ],
+      "category":"Linux",
+      "difficulty":"Easy"
+   },
+   {
+      "id":740,
+      "question":"How to stream pod logs (stdout) in Kubernetes?",
+      "description":null,
+      "answers":{
+         "answer_a":"kubectl logs -f my-pod",
+         "answer_b":"kubectl pod -f my-pod",
+         "answer_c":"kubectl stream -f my-pod",
+         "answer_d":"kubectl logs my-pod",
+         "answer_e":null,
+         "answer_f":null
+      },
+      "multiple_correct_answers":"false",
+      "correct_answers":{
+         "answer_a_correct":"true",
+         "answer_b_correct":"false",
+         "answer_c_correct":"false",
+         "answer_d_correct":"false",
+         "answer_e_correct":"false",
+         "answer_f_correct":"false"
+      },
+      "correct_answer":"answer_a",
+      "explanation":null,
+      "tip":null,
+      "tags":[
+         {
+            "name":"Kubernetes"
+         }
+      ],
+      "category":"Linux",
+      "difficulty":"Easy"
+   },
+   {
+      "id":690,
+      "question":"How can we list out all currently executing background processes?",
+      "description":null,
+      "answers":{
+         "answer_a":"ps -e",
+         "answer_b":"top",
+         "answer_c":"ps faux",
+         "answer_d":"proccess -aux",
+         "answer_e":null,
+         "answer_f":null
+      },
+      "multiple_correct_answers":"false",
+      "correct_answers":{
+         "answer_a_correct":"true",
+         "answer_b_correct":"false",
+         "answer_c_correct":"false",
+         "answer_d_correct":"false",
+         "answer_e_correct":"false",
+         "answer_f_correct":"false"
+      },
+      "correct_answer":null,
+      "explanation":null,
+      "tip":null,
+      "tags":[
+         {
+            "name":"BASH"
+         },
+         {
+            "name":"Linux"
+         }
+      ],
+      "category":"Linux",
+      "difficulty":"Easy"
+   },
+   {
+      "id":649,
+      "question":"What is Solaris?",
+      "description":null,
+      "answers":{
+         "answer_a":"HP\u2019s UNIX",
+         "answer_b":"IBM\u2019s UNIX",
+         "answer_c":"Sun microsystems UNIX",
+         "answer_d":"Microsoft\u2019s UNIX",
+         "answer_e":null,
+         "answer_f":null
+      },
+      "multiple_correct_answers":"false",
+      "correct_answers":{
+         "answer_a_correct":"false",
+         "answer_b_correct":"false",
+         "answer_c_correct":"true",
+         "answer_d_correct":"false",
+         "answer_e_correct":"false",
+         "answer_f_correct":"false"
+      },
+      "correct_answer":"answer_a",
+      "explanation":null,
+      "tip":null,
+      "tags":[
+         {
+            "name":"BASH"
+         }
+      ],
+      "category":"Linux",
+      "difficulty":"Easy"
+   },
+   {
+      "id":667,
+      "question":"Choose the odd one out.",
+      "description":null,
+      "answers":{
+         "answer_a":"csh",
+         "answer_b":"bsh",
+         "answer_c":"ksh",
+         "answer_d":"Kernel",
+         "answer_e":null,
+         "answer_f":null
+      },
+      "multiple_correct_answers":"false",
+      "correct_answers":{
+         "answer_a_correct":"false",
+         "answer_b_correct":"false",
+         "answer_c_correct":"false",
+         "answer_d_correct":"true",
+         "answer_e_correct":"false",
+         "answer_f_correct":"false"
+      },
+      "correct_answer":"answer_a",
+      "explanation":"Kernel is the core part of the OS and is odd one the rest are popular shells.",
+      "tip":null,
+      "tags":[
+         {
+            "name":"BASH"
+         }
+      ],
+      "category":"Linux",
+      "difficulty":"Easy"
+   },
+   {
+      "id":1081,
+      "question":"Where are the online repositories configured on a Debian\/Ubuntu Machine",
+      "description":null,
+      "answers":{
+         "answer_a":"\/etc\/apt\/sources.list",
+         "answer_b":"\/etc\/apt\/yum.repos",
+         "answer_c":"\/etc\/fstab",
+         "answer_d":"\/etc\/apt\/repos",
+         "answer_e":null,
+         "answer_f":null
+      },
+      "multiple_correct_answers":"false",
+      "correct_answers":{
+         "answer_a_correct":"true",
+         "answer_b_correct":"false",
+         "answer_c_correct":"false",
+         "answer_d_correct":"false",
+         "answer_e_correct":"false",
+         "answer_f_correct":"false"
+      },
+      "correct_answer":null,
+      "explanation":null,
+      "tip":null,
+      "tags":[
+         {
+            "name":"Linux"
+         }
+      ],
+      "category":"Linux",
+      "difficulty":"Easy"
+   },
+   {
+      "id":721,
+      "question":"Which command shows merged kubeconfig settings?",
+      "description":null,
+      "answers":{
+         "answer_a":"kubectl config view",
+         "answer_b":"kubectl config list",
+         "answer_c":"kubectl config show",
+         "answer_d":"kubectl config print",
+         "answer_e":null,
+         "answer_f":null
+      },
+      "multiple_correct_answers":"false",
+      "correct_answers":{
+         "answer_a_correct":"true",
+         "answer_b_correct":"false",
+         "answer_c_correct":"false",
+         "answer_d_correct":"false",
+         "answer_e_correct":"false",
+         "answer_f_correct":"false"
+      },
+      "correct_answer":"answer_a",
+      "explanation":null,
+      "tip":null,
+      "tags":[
+         {
+            "name":"Kubernetes"
+         }
+      ],
+      "category":"Linux",
+      "difficulty":"Easy"
+   },
+   {
+      "id":705,
+      "question":"Deployment Controllers are part of",
+      "description":null,
+      "answers":{
+         "answer_a":"Master Controller Manager",
+         "answer_b":"kube-scheduler",
+         "answer_c":"etcd manager",
+         "answer_d":"API Controller Manager",
+         "answer_e":null,
+         "answer_f":null
+      },
+      "multiple_correct_answers":"false",
+      "correct_answers":{
+         "answer_a_correct":"true",
+         "answer_b_correct":"false",
+         "answer_c_correct":"false",
+         "answer_d_correct":"false",
+         "answer_e_correct":"false",
+         "answer_f_correct":"false"
+      },
+      "correct_answer":"answer_a",
+      "explanation":"A Deployment provides declarative updates for Pods and ReplicaSets.You describe a desired state in a Deployment, and the Deployment Controller changes the actual state to the desired state at a controlled rate. You can define Deployments to create new ReplicaSets, or to remove existing Deployments and adopt all their resources with new Deployments.",
+      "tip":null,
+      "tags":[
+         {
+            "name":"Kubernetes"
+         }
+      ],
+      "category":"Linux",
+      "difficulty":"Easy"
+   }
+]
