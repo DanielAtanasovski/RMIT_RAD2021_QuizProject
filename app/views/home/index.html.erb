@@ -2,7 +2,8 @@
   <div class= "container mt-sm-5 text-center">
     <div>
       <% if (not @quizComplete)%>
-        <h2><%= @currentQuestion.question %></h2>
+
+        <h2 class="question"><%= @currentQuestion.question %></h2>
         <%= form_with url: "/", class: "form" do |form| %>
           <% @currentQuestion.answers.split(',').each_with_index do |answer, index| %>
             <div class="form-group">
@@ -10,16 +11,17 @@
               <%= form.label "choice_" + index.to_s, answer, class: "btn btn-secondary input-button"%>
             </div>
           <% end %>
-            <%= form.submit name: "next", value: "Next", class:"btn btn-primary input-button", data: { disable_with: false } %>
+          <%= form.submit name: "next", value: "Next", class:"btn btn-primary input-button", data: { disable_with: false } %>
+
         <% end %>
       <% else %>
-        <h2>Quiz Complete</h2>
+
+        <h2 class="question">Quiz Complete</h2>
         <%= form_with url: "/", class: "form" do |form| %>
-            <div class="form-group">
-              <p> Got <%= @correctAnswers %> / <%= $maxQuestions %></p>
-            </div>
-            <%= form.submit name: "reload", value: "Reload", class:"btn btn-primary input-button", data: { disable_with: false } %>
+          <h4> Got <%= @correctAnswers %> / <%= $maxQuestions %></h4>
+          <%= form.submit name: "reload", value: "Reload", class:"btn btn-primary input-button", data: { disable_with: false } %>
         <% end %>
+
       <% end %>
     </div>
   </div>

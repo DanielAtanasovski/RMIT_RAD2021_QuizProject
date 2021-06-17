@@ -92,7 +92,7 @@ class HomeController < ApplicationController
 
     doneQuestions = cookies[:questionsCompleted].split(',');
     doneQuestions.each do |index|
-      if (index == questionIndex)
+      if (index.to_i == questionIndex.to_i)
         return true;
       end
     end
